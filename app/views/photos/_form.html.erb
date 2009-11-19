@@ -1,0 +1,23 @@
+<%= error_messages_for :photo %>
+
+<% form_for(@photo, :html => { :multipart => true }) do |f| %>
+
+  <% if @photo.new_record? %>
+  <p>
+    <%= f.label :image %> <br />
+    <%= f.file_field :image %>
+  </p>
+  <% else %>
+    <%= image_tag @photo.image.url(:thumb) -%>
+  <% end %>
+
+  <p>
+    <%= f.label :album_id %><br />
+    <%= f.collection_select(:album_id, Album.find(:all), :id, :name, {:include_blank => "Select an album"})%>
+  </p>
+
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+  
+<% end %>

@@ -1,0 +1,27 @@
+<ul id='<%= "photo_list_#{album.id}"%>' class='photo-list <%= 'editing' if current_user %>'>
+  <%= render :partial => 'photo', :collection => album.photos %>
+</ul>
+<% if current_user %>
+<% javascript_tag do %>
+  $('<%= "#photo_list_#{album.id}" %>').sortable(
+    {
+      axis: 'y',
+      dropOnEmpty:false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('<%= "#photo_list_#{album.id}" %>').sortable('serialize') + '&id=<%=album.id-%>',
+          dataType: 'script',
+          complete: function(request){
+              $('<%= "#photo_list_#{album.id}" %>').effect('highlight');
+            },
+          url: '<%= sort_album_path(album) %>'})
+      }
+  })
+<% end %>
+<% end %>

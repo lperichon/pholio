@@ -1,0 +1,8 @@
+<li>
+  <%= image_tag photo.image.url(:thumb) -%>
+  <ul>
+    <li><%= link_to 'Show', photo %></li>
+    <li><%= link_to 'Edit', edit_photo_path(photo) %></li>
+    <li><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></li>
+  </ul>
+</li>

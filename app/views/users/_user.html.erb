@@ -1,0 +1,32 @@
+<% form_for @user do |form| %>  
+<%= form.error_messages %>
+<ol class="formList">
+  <li>
+    <%= form.label :username, "Username" %>
+    <%= form.text_field :username %>
+  </li>
+  <li>
+    <%= form.label :email, "Email" %>
+    <%= form.text_field :email %>
+  </li>
+  <% unless current_user %>
+      <% form.fields_for :account do |account_form| %>
+      <li>
+        <%= account_form.label :name, "Account Name" %>
+        <%= account_form.text_field :name %>
+      </li>
+      <% end %>
+  <% end %>
+  <li>
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password %>
+  </li>
+  <li>
+    <%= form.label :password_confirmation, "Password confirmation" %>
+    <%= form.password_field :password_confirmation %>
+  </li>
+  <li>
+    <%= form.submit "Submit" %>
+  </li>
+</ol>
+<% end %>

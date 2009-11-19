@@ -1,0 +1,18 @@
+<ul>
+  <li class='<%= "love#{selected_if(:home)}" %>'><%= link_to 'Home', root_path %></li>
+  <li class='<%= "think#{selected_if(:bio)}" %>'><%= link_to 'Bio', '/bio' %></li>
+  <li class='<%= "wish#{selected_if(:contact)}" %>'><%= link_to 'Contact', '/contact' %></li>
+  <li class='<%= "hate#{selected_if(:albums)}" %>'><%= link_to 'Albums', albums_path %></li>
+  <% if current_user %>
+  <% if current_user == current_account.manager %>
+  <li class='<%= selected_if(:accounts) %>'><%= link_to 'Account', edit_account_path(current_account) %></li>
+  <li class='<%= selected_if(:users) %>'><%= link_to 'Users', users_path %></li>
+  <% end %>
+  <% if current_user.admin? %>
+  <li class='<%= selected_if(:accounts) %>'><%= link_to 'Accounts', accounts_path %></li>
+  <li class='<%= selected_if(:pages) %>'><%= link_to 'Pages', pages_path %></li>
+  <li class='<%= selected_if(:photos) %>'><%= link_to 'Photos', photos_path %></li>
+  <% end %>
+  <li><%= link_to 'Logout', logout_path %></li>
+  <% end %>
+</ul>

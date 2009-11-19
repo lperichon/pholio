@@ -1,0 +1,21 @@
+<h1><%= @album.name %></h1>
+<div id="gallery">
+  <div id="prev">
+    <a href="#previous"><%= image_tag 'back.png'%></a>
+  </div>
+  <div id="pictures">
+    <ul>
+  <% @album.photos.each do |photo| %>
+    <li><%= image_tag photo.image.url(:medium) -%></li>
+  <% end %>
+    </ul>
+  </div>
+  <div id="next">
+    <a href="#next"><%= image_tag 'next.png'%></a>
+  </div>
+</div>
+<div id="actions">
+  <% if current_user %>
+  <%= link_to 'Edit', edit_album_path(@album) %>
+  <% end %>
+</div>

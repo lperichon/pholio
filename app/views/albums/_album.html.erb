@@ -1,0 +1,9 @@
+<h2><%= album.name %></h2>
+<div id='<%= "photo_list_container_#{album.id}"%>' class="album">
+  <%= render :partial => 'photo_list', :locals => {:album => album} %>
+</div>
+<% if current_user %>
+<%= link_to_function "Add photo to album" do |page|
+    page["#photo_list_container_#{album.id}"].append(render(:partial => 'add_photo', :locals => {:photo => Photo.new(:album_id => album.id)}))
+    end %>
+<% end %>

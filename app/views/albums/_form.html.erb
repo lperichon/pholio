@@ -1,0 +1,14 @@
+<%= error_messages_for :album %>
+
+<% form_for(@album) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.check_box :hidden %>
+  <%= f.label :hidden %>
+
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+  
+<% end %>

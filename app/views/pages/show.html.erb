@@ -1,0 +1,5 @@
+<%=@page.content %>
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
+<% end %>

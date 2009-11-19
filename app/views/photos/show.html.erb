@@ -1,0 +1,10 @@
+<p>
+<%= image_tag @photo.image.url -%>
+</p>
+<% if params[:album_id] %>
+    <%= link_to 'Edit', edit_album_photo_path(@photo.album, @photo) %> |
+    <%= link_to 'Back', album_path(@photo.album) %>
+<% else %>
+    <%= link_to 'Edit', edit_photo_path(@photo) %> |
+    <%= link_to 'Back', photos_path %>
+<% end %>

@@ -1,0 +1,5 @@
+<h1>Listing photos</h1>
+
+<%= render :partial => 'list', :locals => {:photos => @photos} %>
+
+<%= link_to 'New photo', new_photo_path %>

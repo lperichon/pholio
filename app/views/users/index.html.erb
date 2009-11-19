@@ -1,0 +1,30 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <% if current_user.admin? %>
+    <th>Admin</th>
+    <% end %>
+    <th>Manager</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.username %></td>
+    <% if current_user.admin? %>
+    <td><%=h user.admin? %></td>
+    <% end %>
+    <td><%=h !user.managed_account.nil? %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <% if user.managed_account.nil? %>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user', new_user_path %>

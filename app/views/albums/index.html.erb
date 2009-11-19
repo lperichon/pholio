@@ -1,0 +1,51 @@
+<% if current_user %>
+  <h1>Sort albums</h1>
+<% end %>
+<ul id="albums" class='<%= 'editing' if current_user %>' >
+<% @albums.each do |album| %>
+    <% unless album.hidden? && !current_user %>  
+    <li id="album_<%=album.id%>" class="album">
+      <% if current_user %><span class="handle">[drag]</span> <%end%>
+        <h2><%= album.name %></h2>
+        <% photo = album.photos.first %>
+        <div class='element'>
+          <%= link_to(image_tag(photo.image.url(:thumb)), album) if photo %>
+        </div>
+        <% if current_user %>
+        <ul class="element-actions">
+          <li class="element-action"><%= link_to 'View', album %></li>
+          <li class="element-action"><%= link_to 'Edit', edit_album_path(album) %></li>
+          <li class="element-action"><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></li>
+        </ul>
+        <% end %>
+    </li>
+    <% end %>      
+<% end %>
+</ul>
+<% if current_user %>
+<% javascript_tag do %>
+  $('#albums').sortable(
+    {
+      axis: 'y',
+      dropOnEmpty:false,
+      handle: '.handle',
+      cursor: 'crosshair',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#albums').sortable('serialize'),
+          dataType: 'script',
+          complete: function(request){
+              $('#albums').effect('highlight');
+            },
+          url: '<%= sort_albums_path %>'})
+      }
+  })
+<% end %>
+<div id='actions'>
+  <%= link_to 'New album', new_album_path %>
+</div>
+<% end %>

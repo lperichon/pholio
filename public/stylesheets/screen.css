@@ -1,0 +1,294 @@
+/* Structure */
+body {
+  background: #111;
+  color: #5C5C5C;
+  font-family: Helvetica, Arial, sans-serif;
+  min-width: 640px;
+}
+
+#header, #menu, #content, #footer {
+  overflow: hidden;
+  display: inline-block
+}
+
+a {
+  border: 0;
+}
+
+/* safari and opera need this */
+#header, #footer {
+  width: 100%
+}
+
+#menu, #content, #sub-section {
+  float: left
+}
+
+#menu {
+  width: 20%
+}
+
+#content {
+  width: 80%
+}
+
+#footer {
+  clear: left
+}
+
+/* End Structure */
+
+/* Menu */
+#menu {
+  letter-spacing: -3px;
+}
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+#menu li {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#menu li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  color: #fff;
+}
+
+#menu li.selected {
+  color: #fff;
+}
+
+/* End Menu */
+
+/* Colors */
+.love { color: #a839b2 }
+
+.hate { color: #ff0071 }
+
+.think { color: #acd030 }
+
+.believe { color: #58aa00 }
+
+.feel { color: #00aa78 }
+
+.wish { color: #0074ae }
+
+.pirate { color: #f3c435 }
+
+.ninja { color: #f9934f }
+
+.cowboy { color: #ff6600 }
+
+.robot { color: #e54100 }
+
+.tired { color: #9bff65 }
+
+.sleep { color: #66ff7d }
+
+.nap { color: #66ffc9 }
+
+/* End Colors */
+
+/* Forms */
+.formList {
+  list-style: none;
+}
+
+.formList li {
+  margin-top: 5px;
+}
+
+.formList label {
+  width: 100px;
+  float: left;
+}
+
+.formList input {
+}
+
+.formList .actions {
+  margin-top: 10px;
+}
+
+/* End Forms */
+
+/* Header */
+
+#header h1 {
+  font-size: 50px;
+  text-align:center;
+  font-family:Helvetica,Arial,sans-serif;
+  margin: 10px;
+}
+#header h1 .quinto {
+}
+#header h1 .perichon {
+}
+#header h1 .photography {
+  margin-left: 5px;
+  color: #fff;
+}
+
+/* End Header */
+
+/* Shared components */
+
+#content h1 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.element-actions {
+  float: left;
+  overflow: auto;
+  padding: 0;
+  width: 60px;
+  margin-left: 10px;
+}
+
+.element-action {
+  width: 20px;
+}
+
+.element {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+#actions {
+
+}
+
+li .handle {
+  font-size: 12px;
+  cursor: move;
+  color: #777;
+  float: left;
+  margin-right: 5px;
+  position: absolute;
+}
+
+/* Albums */
+
+ul#albums {
+  overflow: auto;
+  padding:0;
+  margin:0;
+}
+
+ul#albums li.album {
+  text-decoration: none;
+  list-style: none;
+  overflow: auto;
+  float: left;
+  width: 10em;
+  height: 10em;
+  padding: 10px;
+  margin-left: 10px
+}
+
+ul#albums.editing li.album {
+  float: none;
+  width: 15em;
+}
+
+ul#albums.editing li.album .element {
+  width: 50%;
+}
+
+ul#albums li.album h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+ul#albums li.album a img {
+  border: 0;
+}
+
+div.album ul.photo-list {
+  width: 30em;
+  list-style: none;
+}
+
+div.album ul.photo-list li.photo {
+  float: left;
+  width: 15em;
+}
+
+div.album ul.photo-list.editing {
+}
+
+div.album ul.photo-list.editing li.photo {
+  float: none;
+  overflow:auto;
+}
+
+div.album ul.photo-list.editing li.photo .element {
+  width: 50%;
+}
+
+div.album ul.photo-list .handle {
+  position: inherit;
+}
+
+/* End Albums */
+
+/* Gallery */
+
+#gallery {
+  position: relative;
+  height: 500px;
+  margin-left: 100px;
+}
+
+#pictures ul {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  overflow: auto;
+}
+
+#pictures ul li {
+}
+
+#pictures img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#pictures {
+  float: left;
+}
+
+#prev, #next {
+  text-align: center;
+  float: left;
+  margin-top: 140px;
+}
+a img{
+  border: 0;
+}
+
+#loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent url(/images/ajax-loader.gif) no-repeat center center;
+    z-index: 9999;
+}
+
+/* End Gallery */

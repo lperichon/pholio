@@ -1,0 +1,24 @@
+<li id="photo_<%=photo.id%>" class="photo">
+  <% if current_user %>
+  <span class="handle">[drag]</span>
+  <% end %>
+  <div class="element">
+    <%= image_tag photo.image.url(:thumb) -%>
+  </div>
+  <% if current_user %>
+  <ul class="element-actions">
+    <li class="element-action">
+      <%= link_to 'Destroy', album_photo_path(photo.album, photo), :confirm => 'Are you sure?', :class => 'remote-delete' %>
+    </li>
+  </ul>
+  <% end %>
+</li>
+
+<% javascript_tag do %>
+  $('a.remote-delete').click(function() {
+    // we just need to add the key/value pair for the DELETE method
+    // as the second argument to the JQuery $.post() call
+    $.post(this.href, { _method: 'delete' }, null, "script");
+    return false;
+  });
+<% end %>

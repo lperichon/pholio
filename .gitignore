@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+log/*.log
+tmp/**/*
+db/*.sqlite3
+public/system/**/*
